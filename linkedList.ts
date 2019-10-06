@@ -14,6 +14,7 @@ class LinkedList {
   constructor(value: any) {
     this.head = new LinkedListNode(value);
   }
+
   //append to the end of the linked list
   append(value: any) {
     if (this.head === null) {
@@ -36,7 +37,8 @@ class LinkedList {
     this.head = newHead;
   }
 
-  delete(value: any) {
+  // delete a linked list with value
+  deleteWithValue(value: any) {
     if (this.head === null) {
       return;
     }
@@ -55,8 +57,17 @@ class LinkedList {
   }
 }
 
-const MyLinkedList = new LinkedList(1);
-MyLinkedList.append(2);
-MyLinkedList.append(3);
-MyLinkedList.delete(1);
+// create a linked list with head=3
+const MyLinkedList = new LinkedList(3);
+
+// append 4 ad 5 to the end of the linked list
+MyLinkedList.append(4);
+MyLinkedList.append(5);
+
+// add 2 and 1 to the begining of the linked list
+MyLinkedList.prepend(2);
+MyLinkedList.prepend(1);
+
+//delete a linked list node with value 1
+MyLinkedList.deleteWithValue(1);
 console.log(MyLinkedList);
