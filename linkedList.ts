@@ -1,5 +1,5 @@
 // class for a Linked List Node
-class LinkedListNode {
+export class LinkedListNode {
   data: any;
   next: LinkedListNode;
   constructor(value: any) {
@@ -9,7 +9,7 @@ class LinkedListNode {
 }
 
 // class for a Linkedin List
-class LinkedList {
+export class LinkedList {
   head: LinkedListNode;
   constructor(value: any) {
     this.head = new LinkedListNode(value);
@@ -70,4 +70,3 @@ MyLinkedList.prepend(1);
 
 //delete a linked list node with value 1
 MyLinkedList.deleteWithValue(1);
-console.log(MyLinkedList);
