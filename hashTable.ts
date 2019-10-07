@@ -47,7 +47,7 @@ export class HashTable {
     );
     let linkedListAtIndex = this.arr[indexFromHashCode];
     if (!linkedListAtIndex) {
-      return "This key does not exist";
+      return null;
     }
     let found: boolean = false;
     let current: LinkedListNode = linkedListAtIndex.head;
@@ -55,7 +55,6 @@ export class HashTable {
       found = true;
       return current.data[1];
     } else {
-      console.log(current.next);
       while (current.next) {
         if (current.next.data[0] === key) {
           found = true;
@@ -66,7 +65,7 @@ export class HashTable {
       }
     }
     if (found === false) {
-      return "This key does not exist";
+      return null;
     }
   }
 }
