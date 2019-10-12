@@ -12,5 +12,4 @@ def palindrome(str):
     return isPalindrome
 
 
-print(palindrome("mohammad dammahom"))
-
+print(palindrome("mohammmmahom"))
