@@ -4,7 +4,9 @@ from hashCode import generateHashCode
 
 
 class HashTable:
-    array = [None]*10
+
+    def __init__(self):
+        self.array = [None]*10
 
     def put(self, key, value):
         keyHashCode = generateHashCode(key)
