@@ -5,8 +5,11 @@ class LinkedListNode:
 
 
 class LinkedList:
-    def __init__(self, value):
-        self.head = LinkedListNode(value)
+    def __init__(self, value=None):
+        if value == None:
+            self.head = None
+        else:
+            self.head = LinkedListNode(value)
 
     def append(self, value):
         if self.head == None:
@@ -20,9 +23,10 @@ class LinkedList:
     def prepend(self, value):
         if self.head == None:
             self.head = LinkedListNode(value)
-        newHead = LinkedListNode(value)
-        newHead.next = self.head
-        self.head = newHead
+        else:
+            newHead = LinkedListNode(value)
+            newHead.next = self.head
+            self.head = newHead
 
     def print(self):
         arr = []
