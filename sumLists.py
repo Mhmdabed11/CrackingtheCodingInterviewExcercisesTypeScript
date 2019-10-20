@@ -46,14 +46,48 @@ def sumListsTwo(linkedList1, linkedList2):
     myLinkedList3.print()
 
 
-myLinkedList1 = LinkedList(3)
-myLinkedList1.append(6)
-myLinkedList1.append(5)
+class PartialSum:
+    sum = LinkedList()
+    carry = 0
 
 
-myLinkedList2 = LinkedList(2)
-myLinkedList2.append(4)
-myLinkedList2.append(8)
+def sumTwoListsTwo(node1, node2):
+    if(node1 == None and node2 == None):
+        sum = PartialSum()
+        return sum
+    sum = sumTwoListsTwo(node1.next, node2.next)
+    val = node1.value + node2.value + sum.carry
+    sum.sum.prepend(val % 10)
+    sum.carry = math.floor(val / 10)
+    return sum
 
 
-print(sumListsTwo(myLinkedList1, myLinkedList2))
+def addLists(linkedList1, linkedList2):
+    l1 = linkedList1.length()
+    l2 = linkedList2.length()
+
+    if(l1 > l2):
+        for i in range(0, l1-l2):
+            linkedList2.prepend(0)
+    elif(l2 > l1):
+        for i in range(0, l2-l1):
+            linkedList1.prepend(0)
+
+    sum = sumTwoListsTwo(linkedList1.head, linkedList2.head)
+    sum.sum.prepend(sum.carry)
+    return sum.sum
+
+
+myLinkedList1 = LinkedList(9)
+myLinkedList1.append(9)
+myLinkedList1.append(9)
+
+
+myLinkedList2 = LinkedList(9)
+myLinkedList2.append(9)
+myLinkedList2.append(9)
+myLinkedList2.append(7)
+myLinkedList2.append(6)
+
+
+addLists(myLinkedList1, myLinkedList2).print()
