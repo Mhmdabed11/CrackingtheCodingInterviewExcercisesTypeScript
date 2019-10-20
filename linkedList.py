@@ -28,6 +28,14 @@ class LinkedList:
             newHead.next = self.head
             self.head = newHead
 
+    def length(self):
+        length = 0
+        current = self.head
+        while(current != None):
+            length = length + 1
+            current = current.next
+        return length
+
     def print(self):
         arr = []
         current = self.head
